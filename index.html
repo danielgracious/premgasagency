@@ -198,6 +198,9 @@
     display:flex; align-items:center; justify-content:center;
     font-family:var(--font-display); font-weight:800; font-size:0.85rem; color:#3FD9B8;
   }
+  .hospital-chip img.logo-img{
+    width:32px; height:32px; border-radius:8px; object-fit:contain; background:#fff; padding:3px;
+  }
   .hospital-chip .h-name{font-family:var(--font-mono); font-size:0.8rem; color:#DCE9EE;}
 
   /* ---------- PRODUCTS ---------- */
@@ -225,8 +228,14 @@
   }
   .product-visual{
     background:var(--sky); padding:30px; display:flex; align-items:center; justify-content:center; height:190px;
+    overflow:hidden;
   }
   .product-visual svg{width:88px; height:88px;}
+  .product-visual img{width:100%; height:100%; object-fit:cover; border-radius:0;}
+  .gas-card .product-visual img{height:110px;}
+  .modal-visual img{width:100%; height:220px; object-fit:cover;}
+  .modal-visual{padding:0;}
+  .modal-visual.no-image{padding:36px;}
   .product-body{padding:22px 22px 24px;}
   .product-body .eyebrow{color:var(--ink-soft);}
   .product-body h3{font-size:1.15rem; margin-top:6px;}
@@ -648,9 +657,17 @@
     'SIMS Hospital', 'Vijaya Hospital', 'Rela Institute', 'Billroth Hospitals'
   ];
   const marqueeTrack = document.getElementById('marqueeTrack');
+  function slugify(name){
+    return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  }
   function chipHTML(name){
     const initials = name.split(' ').filter(w => w[0] === w[0].toUpperCase()).slice(0,2).map(w => w[0]).join('');
-    return `<div class="hospital-chip"><span class="logo-dot">${initials}</span><span class="h-name">${name}</span></div>`;
+    const slug = slugify(name);
+    return `<div class="hospital-chip">
+      <img class="logo-img" src="images/hospitals/${slug}.png" alt="${name} logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <span class="logo-dot" style="display:none">${initials}</span>
+      <span class="h-name">${name}</span>
+    </div>`;
   }
   // duplicate the list so the marquee can loop seamlessly at -50%
   const chips = HOSPITALS.map(chipHTML).join('');
@@ -719,7 +736,7 @@
       desc:'A specialised, low-concentration inhaled gas used in ICU/NICU settings for pulmonary hypertension and select critical respiratory support.',
       specs:[['Capacity','2L / 10L cylinders'],['Blend','Low ppm NO in N₂ (per prescription)'],['State','Compressed, specialised blend'],['Common Use','Inhaled pulmonary vasodilator therapy (ICU/NICU)']],
       usage:['Administer only through a dedicated, calibrated NO delivery system.','Continuous monitoring of NO₂ and methaemoglobin levels is required during therapy.','Reserved for trained critical-care staff — not for general ward use.'],
-      safety:'Highly regulated gas — toxic at high concentrations and can form NO₂ on exposure to oxygen. Must only be handled and administered per your facility critical-care protocol and regulatory approval.'
+      safety:'Highly regulated gas — toxic at high concentrations and can form NO₂ on exposure to oxygen. Must only be handled and administered per your facility\'s critical-care protocol and regulatory approval.'
     }
   ];
 
@@ -730,7 +747,10 @@
     card.setAttribute('type','button');
     card.innerHTML = `
       <div class="accent-bar" style="background:${g.color}"></div>
-      <div class="product-visual" style="color:${g.color}">${ICONS.cylinder}</div>
+      <div class="product-visual" style="color:${g.color}">
+        <img src="images/gases/${g.id}.jpg" alt="${g.name} cylinder" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span style="display:none; align-items:center; justify-content:center; width:100%; height:100%;">${ICONS.cylinder}</span>
+      </div>
       <div class="product-body">
         <span class="eyebrow" style="color:${g.color}">${g.symbol}</span>
         <h3>${g.name}</h3>
@@ -738,6 +758,7 @@
       </div>`;
     card.addEventListener('click', () => openModal({
       icon:'cylinder', iconColor:g.color, category:`Medical Gas · ${g.symbol}`, name:g.name,
+      imgSrc:`images/gases/${g.id}.jpg`,
       desc:g.desc, specs:g.specs, usage:g.usage, safety:g.safety
     }));
     gasGrid.appendChild(card);
@@ -769,7 +790,10 @@
     card.className = 'product-card';
     card.setAttribute('type','button');
     card.innerHTML = `
-      <div class="product-visual" style="color:#1E8F7A">${ICONS[p.icon]}</div>
+      <div class="product-visual" style="color:#1E8F7A">
+        <img src="images/equipment/${p.id}.jpg" alt="${p.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span style="display:none; align-items:center; justify-content:center; width:100%; height:100%;">${ICONS[p.icon]}</span>
+      </div>
       <div class="product-body">
         <span class="eyebrow">${p.category}</span>
         <h3>${p.name}</h3>
@@ -778,6 +802,7 @@
       </div>`;
     card.addEventListener('click', () => openModal({
       icon:p.icon, iconColor:'#1E8F7A', category:p.category, name:p.name,
+      imgSrc:`images/equipment/${p.id}.jpg`,
       desc:p.desc, specs:p.specs, usage:p.usage, safety:p.safety
     }));
     equipGrid.appendChild(card);
@@ -794,7 +819,14 @@
   const modalSafety = document.getElementById('modalSafety');
 
   function openModal(p){
-    modalVisual.innerHTML = `<span style="color:${p.iconColor}">${ICONS[p.icon]}</span>`;
+    modalVisual.className = 'modal-visual';
+    if(p.imgSrc){
+      modalVisual.innerHTML = `<img src="${p.imgSrc}" alt="${p.name}" onerror="this.parentElement.classList.add('no-image'); this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span style="display:none; color:${p.iconColor}">${ICONS[p.icon]}</span>`;
+    } else {
+      modalVisual.classList.add('no-image');
+      modalVisual.innerHTML = `<span style="color:${p.iconColor}">${ICONS[p.icon]}</span>`;
+    }
     modalEyebrow.textContent = p.category;
     modalTitle.textContent = p.name;
     modalDesc.textContent = p.desc;
