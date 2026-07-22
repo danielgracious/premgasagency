@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prem Gas Agency | Medical Gas, Equipment &amp; Home Care Services</title>
+<meta name="description" content="Prem Gas Agency supplies medical gas, medical cots, medical machinery and home-care nursing services to hospitals and families. Trusted, certified, always available.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --navy: #0E3A53;
+    --navy-deep: #082638;
+    --teal: #1E8F7A;
+    --teal-light: #E4F5F1;
+    --sky: #EAF4FA;
+    --white: #FFFFFF;
+    --ink: #1B2A32;
+    --ink-soft: #52697A;
+    --line: #D8E6EC;
+    --alert: #E0663F;
+    --radius: 14px;
+    --shadow: 0 10px 30px rgba(14,58,83,0.10);
+    --font-display: 'Manrope', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family: var(--font-body);
+    color: var(--ink);
+    background: var(--white);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;}
+  h1,h2,h3,h4{font-family:var(--font-display); color:var(--navy-deep); line-height:1.15;}
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--teal);
+    font-weight:600;
+  }
+  .container{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+  section{padding:88px 0;}
+  .section-head{max-width:640px; margin-bottom:48px;}
+  .section-head h2{font-size:clamp(1.7rem,3.2vw,2.4rem); margin-top:10px;}
+  .section-head p{color:var(--ink-soft); margin-top:14px; font-size:1.02rem;}
+  :focus-visible{outline:3px solid var(--teal); outline-offset:3px;}
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky; top:0; z-index:500;
+    background:rgba(255,255,255,0.94);
+    backdrop-filter: blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 24px; max-width:1180px; margin:0 auto;
+  }
+  .brand{display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-weight:800; font-size:1.2rem; color:var(--navy-deep);}
+  .brand .mark{width:36px; height:36px; flex-shrink:0;}
+  .nav-links{display:flex; gap:32px; align-items:center;}
+  .nav-links a{font-size:0.92rem; font-weight:600; color:var(--navy); position:relative;}
+  .nav-links a:hover{color:var(--teal);}
+  .nav-cta{
+    background:var(--teal); color:var(--white); padding:10px 20px; border-radius:999px;
+    font-weight:700; font-size:0.88rem;
+  }
+  .nav-cta:hover{background:#187264; color:var(--white);}
+  .burger{display:none; width:26px; height:20px; flex-direction:column; justify-content:space-between;}
+  .burger span{display:block; height:2.5px; background:var(--navy-deep); border-radius:2px;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background: linear-gradient(180deg, var(--sky) 0%, #F7FBFD 60%, var(--white) 100%);
+    padding:72px 0 40px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns: 1.1fr 0.9fr; gap:56px; align-items:center;
+  }
+  .hero .eyebrow{margin-bottom:16px; display:inline-block;}
+  .hero h1{
+    font-size:clamp(2.1rem, 4.4vw, 3.4rem);
+    font-weight:800;
+    color:var(--navy-deep);
+  }
+  .hero h1 span{color:var(--teal);}
+  .hero p.lead{
+    margin-top:20px; font-size:1.08rem; color:var(--ink-soft); max-width:520px;
+  }
+  .hero-actions{display:flex; gap:14px; margin-top:32px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:14px 26px; border-radius:999px; font-weight:700; font-size:0.95rem;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-primary{background:var(--teal); color:var(--white); box-shadow:0 8px 20px rgba(30,143,122,0.28);}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 12px 26px rgba(30,143,122,0.35);}
+  .btn-ghost{background:var(--white); color:var(--navy-deep); border:1.5px solid var(--line);}
+  .btn-ghost:hover{border-color:var(--teal); color:var(--teal);}
+
+  .hero-stats{display:flex; gap:28px; margin-top:44px; flex-wrap:wrap;}
+  .hero-stats div{border-left:3px solid var(--teal); padding-left:12px;}
+  .hero-stats strong{display:block; font-family:var(--font-display); font-size:1.5rem; color:var(--navy-deep);}
+  .hero-stats span{font-size:0.82rem; color:var(--ink-soft);}
+
+  /* Signature: vital-line / gas-flow pulse graphic */
+  .pulse-panel{
+    position:relative; background:var(--navy-deep); border-radius:20px; padding:34px 28px;
+    box-shadow: var(--shadow); overflow:hidden;
+  }
+  .pulse-panel::before{
+    content:""; position:absolute; inset:0;
+    background: radial-gradient(circle at 80% 0%, rgba(30,143,122,0.35), transparent 55%);
+  }
+  .pulse-label{color:#9FD8CB; font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; position:relative;}
+  .pulse-svg{width:100%; height:auto; margin-top:14px; position:relative;}
+  .pulse-line{
+    fill:none; stroke:#3FD9B8; stroke-width:2.6; stroke-linecap:round; stroke-linejoin:round;
+    stroke-dasharray: 900; stroke-dashoffset:900;
+    animation: draw 3.2s ease-in-out infinite;
+  }
+  @keyframes draw{
+    0%{stroke-dashoffset:900;}
+    55%{stroke-dashoffset:0;}
+    100%{stroke-dashoffset:-900;}
+  }
+  .pulse-readout{display:flex; justify-content:space-between; margin-top:18px; position:relative;}
+  .pulse-readout div strong{display:block; color:var(--white); font-family:var(--font-mono); font-size:1.15rem;}
+  .pulse-readout div span{color:#8FB4C4; font-size:0.72rem;}
+
+  @media (prefers-reduced-motion: reduce){
+    .pulse-line{animation:none; stroke-dashoffset:0;}
+  }
+
+  /* ---------- TRUST BANNER ---------- */
+  .trust{
+    background:var(--navy-deep); padding:40px 0; color:var(--white);
+  }
+  .trust-inner{display:flex; align-items:center; gap:40px; flex-wrap:wrap; justify-content:space-between;}
+  .trust-claim{display:flex; align-items:center; gap:14px; min-width:260px;}
+  .trust-claim strong{font-family:var(--font-display); font-size:1.9rem; color:#3FD9B8;}
+  .trust-claim span{font-size:0.86rem; color:#B9CEDA; display:block;}
+  .trust-logos{display:flex; gap:34px; flex-wrap:wrap; opacity:0.85;}
+  .trust-logos .logo-chip{
+    font-family:var(--font-mono); font-size:0.78rem; letter-spacing:0.03em;
+    border:1px solid rgba(255,255,255,0.25); padding:9px 16px; border-radius:8px; color:#DCE9EE;
+  }
+
+  /* ---------- PRODUCTS ---------- */
+  .product-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;
+  }
+  .product-card{
+    background:var(--white); border:1px solid var(--line); border-radius:var(--radius);
+    overflow:hidden; text-align:left; transition:transform .18s ease, box-shadow .18s ease;
+    display:flex; flex-direction:column;
+  }
+  .product-card:hover{transform:translateY(-6px); box-shadow:var(--shadow);}
+  .product-visual{
+    background:var(--sky); padding:30px; display:flex; align-items:center; justify-content:center; height:190px;
+  }
+  .product-visual svg{width:88px; height:88px;}
+  .product-body{padding:22px 22px 24px;}
+  .product-body .eyebrow{color:var(--ink-soft);}
+  .product-body h3{font-size:1.15rem; margin-top:6px;}
+  .product-body p{color:var(--ink-soft); font-size:0.92rem; margin-top:8px;}
+  .product-body .view-link{
+    margin-top:16px; display:inline-flex; align-items:center; gap:6px;
+    font-weight:700; color:var(--teal); font-size:0.9rem;
+  }
+
+  /* ---------- SERVICES ---------- */
+  .services{background:var(--sky);}
+  .service-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  .service-card{
+    background:var(--white); border-radius:var(--radius); padding:28px 22px; border:1px solid var(--line);
+  }
+  .service-card .icon-wrap{
+    width:50px; height:50px; border-radius:12px; background:var(--teal-light);
+    display:flex; align-items:center; justify-content:center; margin-bottom:16px;
+  }
+  .service-card .icon-wrap svg{width:26px; height:26px;}
+  .service-card h3{font-size:1.05rem;}
+  .service-card p{color:var(--ink-soft); font-size:0.88rem; margin-top:8px;}
+
+  /* ---------- WHY / CREDENTIALS STRIP ---------- */
+  .credentials{display:grid; grid-template-columns:repeat(4,1fr); gap:24px;}
+  .credential{padding:22px 0; border-top:2px solid var(--line);}
+  .credential strong{display:block; font-family:var(--font-display); color:var(--navy-deep); font-size:1rem; margin-bottom:6px;}
+  .credential span{font-size:0.86rem; color:var(--ink-soft);}
+
+  /* ---------- CONTACT ---------- */
+  .contact{background:var(--navy-deep); color:var(--white);}
+  .contact .section-head p{color:#B9CEDA;}
+  .contact .eyebrow{color:#3FD9B8;}
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:start;}
+  .contact-list{display:flex; flex-direction:column; gap:18px;}
+  .contact-item{
+    display:flex; gap:14px; align-items:flex-start; background:rgba(255,255,255,0.05);
+    padding:18px; border-radius:12px; border:1px solid rgba(255,255,255,0.12);
+  }
+  .contact-item .icon-wrap{
+    width:42px; height:42px; border-radius:10px; background:rgba(63,217,184,0.15);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .contact-item .icon-wrap svg{width:22px; height:22px;}
+  .contact-item strong{display:block; font-size:0.95rem;}
+  .contact-item span, .contact-item a{color:#B9CEDA; font-size:0.9rem;}
+  .contact-item a:hover{color:#3FD9B8;}
+  .map-frame{border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,0.15); height:100%; min-height:340px;}
+  .map-frame iframe{width:100%; height:100%; min-height:340px; border:0;}
+
+  .placeholder-note{
+    margin-top:14px; font-size:0.78rem; color:#7FA0AF; font-family:var(--font-mono);
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--navy-deep); border-top:1px solid rgba(255,255,255,0.1); padding:26px 0; color:#8FA9B7; font-size:0.85rem;}
+  .footer-inner{display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+
+  /* ---------- WHATSAPP FLOAT ---------- */
+  .wa-float{
+    position:fixed; bottom:24px; right:24px; z-index:600;
+    width:60px; height:60px; border-radius:50%; background:#25D366;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 10px 24px rgba(37,211,102,0.45);
+    animation: floatpulse 2.4s ease-in-out infinite;
+  }
+  .wa-float svg{width:30px; height:30px;}
+  @keyframes floatpulse{
+    0%,100%{box-shadow:0 10px 24px rgba(37,211,102,0.45);}
+    50%{box-shadow:0 10px 30px rgba(37,211,102,0.7);}
+  }
+  @media (prefers-reduced-motion: reduce){ .wa-float{animation:none;} }
+
+  /* ---------- MODAL ---------- */
+  .modal-overlay{
+    position:fixed; inset:0; background:rgba(8,38,56,0.6); backdrop-filter:blur(3px);
+    display:none; align-items:center; justify-content:center; z-index:900; padding:20px;
+  }
+  .modal-overlay.open{display:flex;}
+  .modal{
+    background:var(--white); border-radius:18px; max-width:640px; width:100%;
+    max-height:88vh; overflow-y:auto; position:relative; box-shadow:0 30px 60px rgba(0,0,0,0.3);
+  }
+  .modal-close{
+    position:absolute; top:16px; right:16px; width:36px; height:36px; border-radius:50%;
+    background:var(--sky); display:flex; align-items:center; justify-content:center; font-size:1.1rem; color:var(--navy);
+    z-index:2;
+  }
+  .modal-close:hover{background:var(--teal-light); color:var(--teal);}
+  .modal-visual{background:var(--sky); padding:36px; display:flex; align-items:center; justify-content:center;}
+  .modal-visual svg{width:110px; height:110px;}
+  .modal-content{padding:28px 30px 34px;}
+  .modal-content .eyebrow{color:var(--teal);}
+  .modal-content h3{font-size:1.5rem; margin-top:6px;}
+  .modal-content .desc{color:var(--ink-soft); margin-top:12px; font-size:0.96rem;}
+  .modal-specs{
+    display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:22px;
+    background:var(--sky); border-radius:12px; padding:16px;
+  }
+  .modal-specs div span{display:block; font-family:var(--font-mono); font-size:0.7rem; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.06em;}
+  .modal-specs div strong{font-size:0.92rem; color:var(--navy-deep);}
+  .modal-block{margin-top:20px;}
+  .modal-block h4{font-size:0.92rem; color:var(--navy-deep); margin-bottom:6px;}
+  .modal-block ul{padding-left:0;}
+  .modal-block li{
+    font-size:0.9rem; color:var(--ink-soft); padding-left:20px; position:relative; margin-bottom:6px;
+  }
+  .modal-block li::before{
+    content:""; position:absolute; left:0; top:8px; width:8px; height:8px; border-radius:50%; background:var(--teal);
+  }
+  .safety-block{background:#FDF1EC; border:1px solid #F3D3C4; border-radius:12px; padding:14px 16px; margin-top:18px;}
+  .safety-block h4{color:var(--alert); display:flex; align-items:center; gap:8px; font-size:0.88rem;}
+  .safety-block p{font-size:0.85rem; color:#8A4A34; margin-top:6px;}
+  .modal-content .btn{margin-top:22px; width:100%; justify-content:center;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 900px){
+    .nav-links{
+      position:fixed; top:68px; left:0; right:0; background:var(--white);
+      flex-direction:column; align-items:flex-start; padding:20px 24px; gap:18px;
+      border-bottom:1px solid var(--line); transform:translateY(-140%); transition:transform .25s ease;
+    }
+    .nav-links.open{transform:translateY(0);}
+    .burger{display:flex;}
+    .hero-grid{grid-template-columns:1fr;}
+    .product-grid{grid-template-columns:1fr 1fr;}
+    .service-grid{grid-template-columns:1fr 1fr;}
+    .credentials{grid-template-columns:1fr 1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    .trust-inner{justify-content:flex-start;}
+  }
+  @media (max-width: 560px){
+    section{padding:60px 0;}
+    .product-grid{grid-template-columns:1fr;}
+    .service-grid{grid-template-columns:1fr;}
+    .credentials{grid-template-columns:1fr;}
+    .hero-stats{gap:20px;}
+    .wa-float{width:54px; height:54px; bottom:18px; right:18px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <nav class="nav">
+    <a href="#top" class="brand">
+      <svg class="mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="10" fill="#1E8F7A"/>
+        <path d="M20 8c-3.5 5-6 8.7-6 12.5A6 6 0 0020 26.5a6 6 0 006-6C26 16.7 23.5 13 20 8z" fill="#fff"/>
+      </svg>
+      Prem Gas Agency
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#products">Products</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+    </ul>
+    <button class="burger" id="burgerBtn" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">Medical Gas &amp; Home Care Supplies</span>
+      <h1>Reliable supplies that keep <span>hospitals &amp; homes</span> breathing easy.</h1>
+      <p class="lead">Prem Gas Agency supplies certified medical gas, medical cots, and diagnostic machinery to hospitals — and brings the same standard of care into homes with trained nursing support and equipment rental.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Request a Quote</a>
+        <a href="#products" class="btn btn-ghost">View Products</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>100+</strong><span>Hospitals supplied</span></div>
+        <div><strong>24/7</strong><span>Emergency dispatch</span></div>
+        <div><strong>15+ yrs</strong><span>In medical supply</span></div>
+      </div>
+    </div>
+
+    <div class="pulse-panel">
+      <span class="pulse-label">Live supply status — signature vital line</span>
+      <svg class="pulse-svg" viewBox="0 0 400 90" xmlns="http://www.w3.org/2000/svg">
+        <path class="pulse-line" d="M0 45 H60 L75 20 L90 70 L105 45 H150 L165 10 L180 80 L195 45 H400"/>
+      </svg>
+      <div class="pulse-readout">
+        <div><strong>99.6%</strong><span>Cylinder purity</span></div>
+        <div><strong>&lt; 60 min</strong><span>Avg. dispatch time</span></div>
+        <div><strong>ISO</strong><span>Certified supply chain</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TRUST BANNER ================= -->
+<section class="trust">
+  <div class="container trust-inner">
+    <div class="trust-claim">
+      <strong>100+</strong>
+      <span>Trusted by hospitals, clinics &amp; care homes across the region</span>
+    </div>
+    <div class="trust-logos">
+      <span class="logo-chip">[ Hospital Name 1 ]</span>
+      <span class="logo-chip">[ Hospital Name 2 ]</span>
+      <span class="logo-chip">[ Hospital Name 3 ]</span>
+      <span class="logo-chip">[ Clinic Name 4 ]</span>
+      <span class="logo-chip">[ Care Home 5 ]</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRODUCTS ================= -->
+<section id="products">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Products</span>
+      <h2>Equipment built for continuous, critical use.</h2>
+      <p>Every product is supplied with full documentation. Tap any card for capacity, usage and safety details.</p>
+    </div>
+
+    <div class="product-grid" id="productGrid"></div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Services</span>
+      <h2>From hospital wards to home bedrooms.</h2>
+      <p>We supply, install, and support — whether it's a hospital's daily gas requirement or a family managing home care.</p>
+    </div>
+
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 3c-3 4-5 7-5 10a5 5 0 0010 0c0-3-2-6-5-10z" stroke="#1E8F7A" stroke-width="1.8"/></svg>
+        </div>
+        <h3>Gas Supply</h3>
+        <p>Scheduled and emergency delivery of oxygen, nitrous oxide and medical air, with cylinder exchange and bulk tank refills.</p>
+      </div>
+      <div class="service-card">
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="10" width="18" height="7" rx="1.5" stroke="#1E8F7A" stroke-width="1.8"/><path d="M5 10V8a2 2 0 012-2h4v4" stroke="#1E8F7A" stroke-width="1.8"/><path d="M3 17v2M21 17v2" stroke="#1E8F7A" stroke-width="1.8"/></svg>
+        </div>
+        <h3>Cot Supply</h3>
+        <p>Rental and purchase of hospital-grade medical cots and beds, delivered and set up at your facility or home.</p>
+      </div>
+      <div class="service-card">
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 21c-4-3-8-6.5-8-10.5A4.5 4.5 0 0112 7a4.5 4.5 0 018 3.5C20 14.5 16 18 12 21z" stroke="#1E8F7A" stroke-width="1.8"/></svg>
+        </div>
+        <h3>Nurses for Home Care</h3>
+        <p>Verified, trained nursing staff for post-surgery recovery, elder care, and long-term home patient support.</p>
+      </div>
+      <div class="service-card">
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3" stroke="#1E8F7A" stroke-width="1.8"/><path d="M8 12h8M12 8v8" stroke="#1E8F7A" stroke-width="1.8"/></svg>
+        </div>
+        <h3>Machine Supply</h3>
+        <p>Oxygen concentrators, suction units, and monitoring machinery — supplied, installed, and serviced on-site.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY / CREDENTIALS ================= -->
+<section id="why">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Why Prem Gas Agency</span>
+      <h2>Built for the moments that can't wait.</h2>
+    </div>
+    <div class="credentials">
+      <div class="credential"><strong>Certified Supply</strong><span>All medical gas meets pharmacopoeia purity standards with batch documentation.</span></div>
+      <div class="credential"><strong>Rapid Dispatch</strong><span>Emergency cylinder and equipment delivery, day or night.</span></div>
+      <div class="credential"><strong>Trained Staff</strong><span>Nursing and technical personnel are verified and background-checked.</span></div>
+      <div class="credential"><strong>Full Support</strong><span>Installation, maintenance and safety training included with every machine.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Get In Touch</span>
+      <h2>Talk to us about your requirement.</h2>
+      <p>Reach out for pricing, availability, or to schedule an emergency delivery. We respond fast.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-list">
+        <div class="contact-item">
+          <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5c0 8 7 15 15 15l3-4-6-3-2 2c-3-1.5-5.5-4-7-7l2-2-3-6L4 5z" stroke="#3FD9B8" stroke-width="1.6"/></svg></div>
+          <div>
+            <strong>Call Us</strong>
+            <a href="tel:+911234567890">+91 12345 67890</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="#3FD9B8" stroke-width="1.6"/><path d="M3 6l9 7 9-7" stroke="#3FD9B8" stroke-width="1.6"/></svg></div>
+          <div>
+            <strong>Email Us</strong>
+            <a href="mailto:info@premgasagency.example">info@premgasagency.example</a>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.6 7-12a7 7 0 10-14 0c0 5.4 7 12 7 12z" stroke="#3FD9B8" stroke-width="1.6"/><circle cx="12" cy="9" r="2.4" stroke="#3FD9B8" stroke-width="1.6"/></svg></div>
+          <div>
+            <strong>Visit Us</strong>
+            <span>123 Anna Salai, Business District, Tamil Nadu, India</span>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h10" stroke="#3FD9B8" stroke-width="1.6"/></svg></div>
+          <div>
+            <strong>Working Hours</strong>
+            <span>Mon–Sat, 9:00 AM – 8:00 PM &nbsp;|&nbsp; Emergency line open 24/7</span>
+          </div>
+        </div>
+        <p class="placeholder-note">⚠ Sample contact details above — replace with your real phone, email, address and WhatsApp number before publishing (see marked spots in the code).</p>
+      </div>
+
+      <div class="map-frame">
+        <iframe
+          src="https://maps.google.com/maps?q=Tamil%20Nadu%2C%20India&t=&z=12&ie=UTF8&iwloc=&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Prem Gas Agency location map">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container footer-inner">
+    <span>© <span id="year"></span> Prem Gas Agency. All rights reserved.</span>
+    <span>Medical Gas &amp; Home Care Supplies</span>
+  </div>
+</footer>
+
+<!-- ================= WHATSAPP FLOAT ================= -->
+<a class="wa-float" id="waFloat" href="https://wa.me/911234567890?text=Hi%20Prem%20Gas%20Agency%2C%20I%27d%20like%20to%20ask%20about%20your%20products." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32" fill="none"><path d="M16 4a12 12 0 00-10.4 18l-1.4 6 6.2-1.6A12 12 0 1016 4z" fill="#fff"/><path d="M11.3 10.4c.3-.6.6-.6.9-.6h.7c.2 0 .5 0 .7.6.3.6.9 2.1 1 2.3.1.2.2.4 0 .6-.1.2-.2.4-.4.6-.2.2-.4.4-.2.8.3.6 1.1 1.6 2.3 2.5 1.5 1.2 2.2 1.3 2.5 1.4.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.5-.2.7-.1.3.1 1.9.9 2.2 1.1.3.1.5.2.6.4.1.2.1.9-.2 1.7-.3.8-1.7 1.6-2.4 1.6-.6.1-1.3.1-2.1-.1-.5-.2-1.1-.4-1.9-.7-3.3-1.4-5.4-4.7-5.6-4.9-.2-.2-1.3-1.7-1.3-3.3 0-1.6.8-2.3 1.1-2.7z" fill="#25D366"/></svg>
+</a>
+
+<!-- ================= PRODUCT MODAL ================= -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+    <div class="modal-visual" id="modalVisual"></div>
+    <div class="modal-content">
+      <span class="eyebrow" id="modalEyebrow"></span>
+      <h3 id="modalTitle"></h3>
+      <p class="desc" id="modalDesc"></p>
+
+      <div class="modal-specs" id="modalSpecs"></div>
+
+      <div class="modal-block">
+        <h4>Usage Instructions</h4>
+        <ul id="modalUsage"></ul>
+      </div>
+
+      <div class="safety-block">
+        <h4>⚠ Safety Information</h4>
+        <p id="modalSafety"></p>
+      </div>
+
+      <a href="#contact" class="btn btn-primary" id="modalCta">Enquire About This Product</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ---------- Year ----------
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ---------- Mobile nav ----------
+  const burger = document.getElementById('burgerBtn');
+  const navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    const expanded = navLinks.classList.contains('open');
+    burger.setAttribute('aria-expanded', expanded);
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // ---------- Product data ----------
+  const ICONS = {
+    cylinder: `<svg viewBox="0 0 64 64" fill="none"><rect x="22" y="10" width="20" height="46" rx="8" stroke="#1E8F7A" stroke-width="3"/><rect x="27" y="4" width="10" height="8" rx="2" fill="#1E8F7A"/><path d="M22 24h20" stroke="#1E8F7A" stroke-width="3"/></svg>`,
+    cot: `<svg viewBox="0 0 64 64" fill="none"><rect x="6" y="26" width="52" height="18" rx="3" stroke="#1E8F7A" stroke-width="3"/><path d="M10 26v-6a3 3 0 013-3h14v9" stroke="#1E8F7A" stroke-width="3"/><path d="M6 50v-6M58 50v-6" stroke="#1E8F7A" stroke-width="3"/></svg>`,
+    machine: `<svg viewBox="0 0 64 64" fill="none"><rect x="10" y="12" width="44" height="40" rx="5" stroke="#1E8F7A" stroke-width="3"/><path d="M18 30h6l4-10 6 20 4-10h8" stroke="#1E8F7A" stroke-width="3" stroke-linejoin="round"/></svg>`
+  };
+
+  const PRODUCTS = [
+    {
+      id: 'oxygen-cylinder',
+      icon: 'cylinder',
+      category: 'Medical Gas',
+      name: 'Medical Oxygen Cylinder',
+      short: 'Pharmacopoeia-grade compressed oxygen for hospital and home therapy use.',
+      desc: 'High-purity medical oxygen supplied in certified steel/aluminium cylinders. Suitable for hospital wards, ambulances, and home oxygen therapy under medical supervision.',
+      specs: [
+        ['Capacity', '10L / 40L / 47L'],
+        ['Purity', '≥ 99.5% USP/IP grade'],
+        ['Pressure', '150 bar (filled)'],
+        ['Valve Type', 'Pin-index / bull-nose']
+      ],
+      usage: [
+        'Connect only with a calibrated pressure regulator and flow meter.',
+        'Open the cylinder valve slowly, never fully in one motion.',
+        'Set flow rate strictly as prescribed by the treating physician.',
+        'Store upright and secured with a chain or stand at all times.'
+      ],
+      safety: 'Keep away from open flame, oil, grease and direct sunlight. Never use with damaged regulators. Cylinders are pressurised — mishandling can cause serious injury. Always transport and store as per local medical gas cylinder regulations.'
+    },
+    {
+      id: 'medical-cot',
+      icon: 'cot',
+      category: 'Medical Equipment',
+      name: 'Medical Cot / Hospital Bed',
+      short: 'Adjustable hospital-grade cot for ward, ICU and home patient care.',
+      desc: 'Manual or semi-electric adjustable medical cot with side railings, designed for patient comfort and caregiver safety in both hospital and home settings.',
+      specs: [
+        ['Load Capacity', 'Up to 150 kg'],
+        ['Adjustment', 'Head / knee / height'],
+        ['Frame', 'Powder-coated steel'],
+        ['Mattress', 'Included, waterproof cover']
+      ],
+      usage: [
+        'Lock all wheel brakes before transferring a patient.',
+        'Raise side railings whenever the patient is unattended.',
+        'Adjust backrest and knee-rest gradually to avoid discomfort.',
+        'Check bolts and joints periodically for looseness.'
+      ],
+      safety: 'Do not exceed the rated load capacity. Ensure the cot is on a level, stable floor before use. Caregivers should be briefed on the locking mechanism before first use to prevent falls.'
+    },
+    {
+      id: 'oxygen-concentrator',
+      icon: 'machine',
+      category: 'Medical Machinery',
+      name: 'Oxygen Concentrator / Suction Machine',
+      short: 'Continuous-use machinery for respiratory support and airway clearance.',
+      desc: 'Electrically powered oxygen concentrators and suction units for continuous home or clinical use, reducing dependency on cylinder refills for stable patients.',
+      specs: [
+        ['Flow Rate', '1–5 LPM (concentrator)'],
+        ['Power', '220–240V AC'],
+        ['Noise Level', '< 45 dB'],
+        ['Warranty', '1 year on-site']
+      ],
+      usage: [
+        'Place on a flat surface with at least 30cm clearance for ventilation.',
+        'Clean or replace filters as per the maintenance schedule.',
+        'Use only manufacturer-approved tubing and connectors.',
+        'Do not operate near flammable gases or open flame.'
+      ],
+      safety: 'This is a life-support-adjacent device for prescribed patients only. Always keep a backup oxygen cylinder available in case of power failure. Do not attempt internal repairs — contact our technical team for servicing.'
+    }
+  ];
+
+  const grid = document.getElementById('productGrid');
+  PRODUCTS.forEach(p => {
+    const card = document.createElement('button');
+    card.className = 'product-card';
+    card.setAttribute('type', 'button');
+    card.innerHTML = `
+      <div class="product-visual">${ICONS[p.icon]}</div>
+      <div class="product-body">
+        <span class="eyebrow">${p.category}</span>
+        <h3>${p.name}</h3>
+        <p>${p.short}</p>
+        <span class="view-link">View details →</span>
+      </div>`;
+    card.addEventListener('click', () => openModal(p));
+    grid.appendChild(card);
+  });
+
+  // ---------- Modal logic ----------
+  const overlay = document.getElementById('modalOverlay');
+  const modalVisual = document.getElementById('modalVisual');
+  const modalEyebrow = document.getElementById('modalEyebrow');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalDesc = document.getElementById('modalDesc');
+  const modalSpecs = document.getElementById('modalSpecs');
+  const modalUsage = document.getElementById('modalUsage');
+  const modalSafety = document.getElementById('modalSafety');
+
+  function openModal(p){
+    modalVisual.innerHTML = ICONS[p.icon];
+    modalEyebrow.textContent = p.category;
+    modalTitle.textContent = p.name;
+    modalDesc.textContent = p.desc;
+    modalSpecs.innerHTML = p.specs.map(([k,v]) => `<div><span>${k}</span><strong>${v}</strong></div>`).join('');
+    modalUsage.innerHTML = p.usage.map(u => `<li>${u}</li>`).join('');
+    modalSafety.textContent = p.safety;
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(){
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('modalClose').addEventListener('click', closeModal);
+  overlay.addEventListener('click', (e) => { if(e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeModal(); });
+</script>
+
+</body>
+</html>
