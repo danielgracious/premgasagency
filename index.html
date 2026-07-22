@@ -218,8 +218,6 @@
   .product-card:hover{transform:translateY(-6px); box-shadow:var(--shadow);}
   .gas-card{position:relative;}
   .gas-card .accent-bar{height:4px; width:100%;}
-  .gas-card .product-visual{height:110px; padding:18px;}
-  .gas-card .product-visual svg{width:52px; height:52px;}
   .gas-card .product-body{padding:16px 16px 18px;}
   .gas-card .product-body h3{font-size:1rem; margin-top:4px;}
   .gas-card .product-body .capacity-tag{
@@ -227,12 +225,17 @@
     color:var(--ink-soft); background:var(--sky); padding:4px 8px; border-radius:6px;
   }
   .product-visual{
-    background:var(--sky); padding:30px; display:flex; align-items:center; justify-content:center; height:190px;
+    background:var(--sky); padding:0; display:flex; align-items:center; justify-content:center; height:190px;
     overflow:hidden;
   }
   .product-visual svg{width:88px; height:88px;}
   .product-visual img{width:100%; height:100%; object-fit:cover; border-radius:0;}
-  .gas-card .product-visual img{height:110px;}
+  .product-visual .icon-fallback{
+    display:none; align-items:center; justify-content:center; width:100%; height:100%; padding:30px;
+  }
+  .gas-card .product-visual{height:110px;}
+  .gas-card .product-visual .icon-fallback{padding:18px;}
+  .gas-card .product-visual svg{width:52px; height:52px;}
   .modal-visual img{width:100%; height:220px; object-fit:cover;}
   .modal-visual{padding:0;}
   .modal-visual.no-image{padding:36px;}
@@ -317,17 +320,18 @@
   .modal-overlay.open{display:flex;}
   .modal{
     background:var(--white); border-radius:18px; max-width:640px; width:100%;
-    max-height:88vh; overflow-y:auto; position:relative; box-shadow:0 30px 60px rgba(0,0,0,0.3);
+    max-height:88vh; position:relative; box-shadow:0 30px 60px rgba(0,0,0,0.3);
+    display:flex; flex-direction:column; overflow:hidden;
   }
   .modal-close{
     position:absolute; top:16px; right:16px; width:36px; height:36px; border-radius:50%;
-    background:var(--sky); display:flex; align-items:center; justify-content:center; font-size:1.1rem; color:var(--navy);
-    z-index:2;
+    background:var(--white); display:flex; align-items:center; justify-content:center; font-size:1.1rem; color:var(--navy);
+    z-index:5; box-shadow:0 2px 8px rgba(0,0,0,0.15);
   }
   .modal-close:hover{background:var(--teal-light); color:var(--teal);}
-  .modal-visual{background:var(--sky); padding:36px; display:flex; align-items:center; justify-content:center;}
+  .modal-visual{background:var(--sky); display:flex; align-items:center; justify-content:center; flex-shrink:0;}
   .modal-visual svg{width:110px; height:110px;}
-  .modal-content{padding:28px 30px 34px;}
+  .modal-content{padding:28px 30px 34px; overflow-y:auto; flex:1; min-height:0;}
   .modal-content .eyebrow{color:var(--teal);}
   .modal-content h3{font-size:1.5rem; margin-top:6px;}
   .modal-content .desc{color:var(--ink-soft); margin-top:12px; font-size:0.96rem;}
@@ -441,8 +445,8 @@
         </a>
       </div>
       <div class="reach-cta">
-        <a href="tel:+911234567890" class="btn btn-ghost" style="background:rgba(255,255,255,0.08); color:#fff; border-color:rgba(255,255,255,0.2);">Call Now</a>
-        <a href="https://wa.me/911234567890" target="_blank" rel="noopener" class="btn wa-btn">WhatsApp</a>
+        <a href="tel:+918124981146" class="btn btn-ghost" style="background:rgba(255,255,255,0.08); color:#fff; border-color:rgba(255,255,255,0.2);">Call Now</a>
+        <a href="https://wa.me/918124981146" target="_blank" rel="noopener" class="btn wa-btn">WhatsApp</a>
       </div>
     </div>
   </div>
@@ -555,7 +559,7 @@
           <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none"><path d="M4 5c0 8 7 15 15 15l3-4-6-3-2 2c-3-1.5-5.5-4-7-7l2-2-3-6L4 5z" stroke="#3FD9B8" stroke-width="1.6"/></svg></div>
           <div>
             <strong>Call Us</strong>
-            <a href="tel:+911234567890">+91 12345 67890</a>
+            <a href="tel:+918124981146">+91 81249 81146</a>
           </div>
         </div>
         <div class="contact-item">
@@ -569,7 +573,7 @@
           <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.6 7-12a7 7 0 10-14 0c0 5.4 7 12 7 12z" stroke="#3FD9B8" stroke-width="1.6"/><circle cx="12" cy="9" r="2.4" stroke="#3FD9B8" stroke-width="1.6"/></svg></div>
           <div>
             <strong>Visit Us</strong>
-            <span>123 Anna Salai, Business District, Tamil Nadu, India</span>
+            <a href="https://maps.app.goo.gl/d4LgWTYr6BzNvjTR6?g_st=aw" target="_blank" rel="noopener">42, 1st St, Gandhi Nagar, Nandivaram-Guduvancheri, Guduvancheri, Tamil Nadu 603202</a>
           </div>
         </div>
         <div class="contact-item">
@@ -579,12 +583,12 @@
             <span>Mon–Sat, 9:00 AM – 8:00 PM &nbsp;|&nbsp; Emergency line open 24/7</span>
           </div>
         </div>
-        <p class="placeholder-note">⚠ Sample contact details above — replace with your real phone, email, address and WhatsApp number before publishing.</p>
+        <p class="placeholder-note">⚠ Email above is still a placeholder — replace it with your real business email before publishing.</p>
       </div>
 
       <div class="map-frame">
         <iframe
-          src="https://maps.google.com/maps?q=Tamil%20Nadu%2C%20India&t=&z=12&ie=UTF8&iwloc=&output=embed"
+          src="https://maps.google.com/maps?q=42%2C%201st%20St%2C%20Gandhi%20Nagar%2C%20Nandivaram-Guduvancheri%2C%20Guduvancheri%2C%20Tamil%20Nadu%20603202&t=&z=16&ie=UTF8&iwloc=&output=embed"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
           title="Prem Gas Agency location map">
@@ -603,7 +607,7 @@
 </footer>
 
 <!-- ================= WHATSAPP FLOAT ================= -->
-<a class="wa-float" id="waFloat" href="https://wa.me/911234567890?text=Hi%20Prem%20Gas%20Agency%2C%20I%27d%20like%20to%20ask%20about%20your%20products." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+<a class="wa-float" id="waFloat" href="https://wa.me/918124981146?text=Hi%20Prem%20Gas%20Agency%2C%20I%27d%20like%20to%20ask%20about%20your%20products." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <svg viewBox="0 0 32 32" fill="none"><path d="M16 4a12 12 0 00-10.4 18l-1.4 6 6.2-1.6A12 12 0 1016 4z" fill="#fff"/><path d="M11.3 10.4c.3-.6.6-.6.9-.6h.7c.2 0 .5 0 .7.6.3.6.9 2.1 1 2.3.1.2.2.4 0 .6-.1.2-.2.4-.4.6-.2.2-.4.4-.2.8.3.6 1.1 1.6 2.3 2.5 1.5 1.2 2.2 1.3 2.5 1.4.3.1.5.1.7-.1.2-.2.8-.9 1-1.2.2-.3.5-.2.7-.1.3.1 1.9.9 2.2 1.1.3.1.5.2.6.4.1.2.1.9-.2 1.7-.3.8-1.7 1.6-2.4 1.6-.6.1-1.3.1-2.1-.1-.5-.2-1.1-.4-1.9-.7-3.3-1.4-5.4-4.7-5.6-4.9-.2-.2-1.3-1.7-1.3-3.3 0-1.6.8-2.3 1.1-2.7z" fill="#25D366"/></svg>
 </a>
 
@@ -749,7 +753,7 @@
       <div class="accent-bar" style="background:${g.color}"></div>
       <div class="product-visual" style="color:${g.color}">
         <img src="images/gases/${g.id}.jpg" alt="${g.name} cylinder" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-        <span style="display:none; align-items:center; justify-content:center; width:100%; height:100%;">${ICONS.cylinder}</span>
+        <span class="icon-fallback">${ICONS.cylinder}</span>
       </div>
       <div class="product-body">
         <span class="eyebrow" style="color:${g.color}">${g.symbol}</span>
@@ -792,7 +796,7 @@
     card.innerHTML = `
       <div class="product-visual" style="color:#1E8F7A">
         <img src="images/equipment/${p.id}.jpg" alt="${p.name}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-        <span style="display:none; align-items:center; justify-content:center; width:100%; height:100%;">${ICONS[p.icon]}</span>
+        <span class="icon-fallback">${ICONS[p.icon]}</span>
       </div>
       <div class="product-body">
         <span class="eyebrow">${p.category}</span>
