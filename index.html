@@ -4,9 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prem Gas Agency | Medical Gas, Equipment &amp; Home Care Services</title>
-<meta name="description" content="Prem Gas Agency supplies medical gas, medical cots, medical machinery and home-care nursing services to hospitals and families. Trusted, certified, always available.">
+<meta name="description" content="Prem Gas Agency supplies medical gas cylinders, medical cots, medical machinery and home-care nursing services to hospitals and families in Chennai and beyond.">
 
-<!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -61,6 +60,9 @@
   .section-head{max-width:640px; margin-bottom:48px;}
   .section-head h2{font-size:clamp(1.7rem,3.2vw,2.4rem); margin-top:10px;}
   .section-head p{color:var(--ink-soft); margin-top:14px; font-size:1.02rem;}
+  .subsection-head{margin:0 0 24px; display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:8px;}
+  .subsection-head h3{font-size:1.25rem; color:var(--navy-deep);}
+  .subsection-head span{font-size:0.85rem; color:var(--ink-soft);}
   :focus-visible{outline:3px solid var(--teal); outline-offset:3px;}
 
   /* ---------- HEADER ---------- */
@@ -123,59 +125,104 @@
   .hero-stats strong{display:block; font-family:var(--font-display); font-size:1.5rem; color:var(--navy-deep);}
   .hero-stats span{font-size:0.82rem; color:var(--ink-soft);}
 
-  /* Signature: vital-line / gas-flow pulse graphic */
-  .pulse-panel{
-    position:relative; background:var(--navy-deep); border-radius:20px; padding:34px 28px;
+  /* Hero side panel: quick-reach / what we supply */
+  .hero-panel{
+    position:relative; background:var(--navy-deep); border-radius:20px; padding:30px 26px;
     box-shadow: var(--shadow); overflow:hidden;
   }
-  .pulse-panel::before{
+  .hero-panel::before{
     content:""; position:absolute; inset:0;
     background: radial-gradient(circle at 80% 0%, rgba(30,143,122,0.35), transparent 55%);
   }
-  .pulse-label{color:#9FD8CB; font-family:var(--font-mono); font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; position:relative;}
-  .pulse-svg{width:100%; height:auto; margin-top:14px; position:relative;}
-  .pulse-line{
-    fill:none; stroke:#3FD9B8; stroke-width:2.6; stroke-linecap:round; stroke-linejoin:round;
-    stroke-dasharray: 900; stroke-dashoffset:900;
-    animation: draw 3.2s ease-in-out infinite;
+  .hero-panel-head{position:relative; margin-bottom:18px;}
+  .hero-panel-head .eyebrow{color:#9FD8CB;}
+  .hero-panel-head h3{color:var(--white); font-size:1.15rem; margin-top:8px;}
+  .reach-list{position:relative; display:flex; flex-direction:column; gap:10px;}
+  .reach-item{
+    display:flex; align-items:center; gap:14px; background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:13px 14px;
+    transition:background .15s ease, transform .15s ease;
   }
-  @keyframes draw{
-    0%{stroke-dashoffset:900;}
-    55%{stroke-dashoffset:0;}
-    100%{stroke-dashoffset:-900;}
+  .reach-item:hover{background:rgba(63,217,184,0.12); transform:translateX(3px);}
+  .reach-item .icon-wrap{
+    width:38px; height:38px; border-radius:10px; background:rgba(63,217,184,0.16);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
   }
-  .pulse-readout{display:flex; justify-content:space-between; margin-top:18px; position:relative;}
-  .pulse-readout div strong{display:block; color:var(--white); font-family:var(--font-mono); font-size:1.15rem;}
-  .pulse-readout div span{color:#8FB4C4; font-size:0.72rem;}
+  .reach-item .icon-wrap svg{width:20px; height:20px;}
+  .reach-item strong{display:block; color:var(--white); font-size:0.92rem;}
+  .reach-item span{color:#9FBAC7; font-size:0.78rem;}
+  .reach-cta{
+    position:relative; display:flex; gap:10px; margin-top:18px;
+  }
+  .reach-cta a{flex:1; justify-content:center; padding:12px 14px; font-size:0.85rem;}
+  .reach-cta .wa-btn{background:#25D366; color:#fff;}
+  .reach-cta .wa-btn:hover{background:#1FB456;}
 
   @media (prefers-reduced-motion: reduce){
-    .pulse-line{animation:none; stroke-dashoffset:0;}
+    .reach-item{transition:none;}
   }
 
   /* ---------- TRUST BANNER ---------- */
   .trust{
-    background:var(--navy-deep); padding:40px 0; color:var(--white);
+    background:var(--navy-deep); padding:40px 0; color:var(--white); overflow:hidden;
   }
-  .trust-inner{display:flex; align-items:center; gap:40px; flex-wrap:wrap; justify-content:space-between;}
-  .trust-claim{display:flex; align-items:center; gap:14px; min-width:260px;}
+  .trust-claim{display:flex; align-items:center; gap:14px; margin-bottom:26px; padding:0 24px; max-width:1180px; margin-left:auto; margin-right:auto;}
   .trust-claim strong{font-family:var(--font-display); font-size:1.9rem; color:#3FD9B8;}
   .trust-claim span{font-size:0.86rem; color:#B9CEDA; display:block;}
-  .trust-logos{display:flex; gap:34px; flex-wrap:wrap; opacity:0.85;}
-  .trust-logos .logo-chip{
-    font-family:var(--font-mono); font-size:0.78rem; letter-spacing:0.03em;
-    border:1px solid rgba(255,255,255,0.25); padding:9px 16px; border-radius:8px; color:#DCE9EE;
+
+  .marquee{
+    position:relative; width:100%; overflow:hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
   }
+  .marquee-track{
+    display:flex; gap:18px; width:max-content;
+    animation: scrollLeft 32s linear infinite;
+  }
+  .marquee:hover .marquee-track{ animation-play-state: paused; }
+  @keyframes scrollLeft{
+    from{ transform:translateX(0); }
+    to{ transform:translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .marquee-track{animation:none;}
+    .marquee{overflow-x:auto;}
+  }
+  .hospital-chip{
+    display:flex; align-items:center; gap:10px; flex-shrink:0;
+    border:1px solid rgba(255,255,255,0.18); background:rgba(255,255,255,0.04);
+    padding:12px 20px; border-radius:10px; white-space:nowrap;
+  }
+  .hospital-chip .logo-dot{
+    width:32px; height:32px; border-radius:8px; background:rgba(63,217,184,0.18);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-display); font-weight:800; font-size:0.85rem; color:#3FD9B8;
+  }
+  .hospital-chip .h-name{font-family:var(--font-mono); font-size:0.8rem; color:#DCE9EE;}
 
   /* ---------- PRODUCTS ---------- */
-  .product-grid{
+  .gas-grid{
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:18px; margin-bottom:56px;
+  }
+  .equip-grid{
     display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;
   }
   .product-card{
     background:var(--white); border:1px solid var(--line); border-radius:var(--radius);
     overflow:hidden; text-align:left; transition:transform .18s ease, box-shadow .18s ease;
-    display:flex; flex-direction:column;
+    display:flex; flex-direction:column; width:100%;
   }
   .product-card:hover{transform:translateY(-6px); box-shadow:var(--shadow);}
+  .gas-card{position:relative;}
+  .gas-card .accent-bar{height:4px; width:100%;}
+  .gas-card .product-visual{height:110px; padding:18px;}
+  .gas-card .product-visual svg{width:52px; height:52px;}
+  .gas-card .product-body{padding:16px 16px 18px;}
+  .gas-card .product-body h3{font-size:1rem; margin-top:4px;}
+  .gas-card .product-body .capacity-tag{
+    display:inline-block; margin-top:8px; font-family:var(--font-mono); font-size:0.72rem;
+    color:var(--ink-soft); background:var(--sky); padding:4px 8px; border-radius:6px;
+  }
   .product-visual{
     background:var(--sky); padding:30px; display:flex; align-items:center; justify-content:center; height:190px;
   }
@@ -305,15 +352,16 @@
     .nav-links.open{transform:translateY(0);}
     .burger{display:flex;}
     .hero-grid{grid-template-columns:1fr;}
-    .product-grid{grid-template-columns:1fr 1fr;}
+    .gas-grid{grid-template-columns:repeat(2,1fr);}
+    .equip-grid{grid-template-columns:1fr 1fr;}
     .service-grid{grid-template-columns:1fr 1fr;}
     .credentials{grid-template-columns:1fr 1fr;}
     .contact-grid{grid-template-columns:1fr;}
-    .trust-inner{justify-content:flex-start;}
   }
   @media (max-width: 560px){
     section{padding:60px 0;}
-    .product-grid{grid-template-columns:1fr;}
+    .gas-grid{grid-template-columns:1fr 1fr;}
+    .equip-grid{grid-template-columns:1fr;}
     .service-grid{grid-template-columns:1fr;}
     .credentials{grid-template-columns:1fr;}
     .hero-stats{gap:20px;}
@@ -364,15 +412,28 @@
       </div>
     </div>
 
-    <div class="pulse-panel">
-      <span class="pulse-label">Live supply status — signature vital line</span>
-      <svg class="pulse-svg" viewBox="0 0 400 90" xmlns="http://www.w3.org/2000/svg">
-        <path class="pulse-line" d="M0 45 H60 L75 20 L90 70 L105 45 H150 L165 10 L180 80 L195 45 H400"/>
-      </svg>
-      <div class="pulse-readout">
-        <div><strong>99.6%</strong><span>Cylinder purity</span></div>
-        <div><strong>&lt; 60 min</strong><span>Avg. dispatch time</span></div>
-        <div><strong>ISO</strong><span>Certified supply chain</span></div>
+    <div class="hero-panel">
+      <div class="hero-panel-head">
+        <span class="eyebrow">Everything under one roof</span>
+        <h3>What we supply</h3>
+      </div>
+      <div class="reach-list">
+        <a href="#products" class="reach-item">
+          <span class="icon-wrap"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3c-3 4-5 7-5 10a5 5 0 0010 0c0-3-2-6-5-10z" stroke="#3FD9B8" stroke-width="1.8"/></svg></span>
+          <span><strong>7 Medical Gases</strong><span>O₂, N₂O, CO₂, N₂, He, NO &amp; more</span></span>
+        </a>
+        <a href="#products" class="reach-item">
+          <span class="icon-wrap"><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="10" width="18" height="7" rx="1.5" stroke="#3FD9B8" stroke-width="1.8"/><path d="M5 10V8a2 2 0 012-2h4v4" stroke="#3FD9B8" stroke-width="1.8"/></svg></span>
+          <span><strong>Cots &amp; Machinery</strong><span>Hospital beds, concentrators, suction units</span></span>
+        </a>
+        <a href="#services" class="reach-item">
+          <span class="icon-wrap"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21c-4-3-8-6.5-8-10.5A4.5 4.5 0 0112 7a4.5 4.5 0 018 3.5C20 14.5 16 18 12 21z" stroke="#3FD9B8" stroke-width="1.8"/></svg></span>
+          <span><strong>Home Care Nurses</strong><span>Trained, verified, available on request</span></span>
+        </a>
+      </div>
+      <div class="reach-cta">
+        <a href="tel:+911234567890" class="btn btn-ghost" style="background:rgba(255,255,255,0.08); color:#fff; border-color:rgba(255,255,255,0.2);">Call Now</a>
+        <a href="https://wa.me/911234567890" target="_blank" rel="noopener" class="btn wa-btn">WhatsApp</a>
       </div>
     </div>
   </div>
@@ -380,18 +441,12 @@
 
 <!-- ================= TRUST BANNER ================= -->
 <section class="trust">
-  <div class="container trust-inner">
-    <div class="trust-claim">
-      <strong>100+</strong>
-      <span>Trusted by hospitals, clinics &amp; care homes across the region</span>
-    </div>
-    <div class="trust-logos">
-      <span class="logo-chip">[ Hospital Name 1 ]</span>
-      <span class="logo-chip">[ Hospital Name 2 ]</span>
-      <span class="logo-chip">[ Hospital Name 3 ]</span>
-      <span class="logo-chip">[ Clinic Name 4 ]</span>
-      <span class="logo-chip">[ Care Home 5 ]</span>
-    </div>
+  <div class="trust-claim">
+    <strong>100+</strong>
+    <span>Trusted by hospitals, clinics &amp; care homes across Chennai</span>
+  </div>
+  <div class="marquee">
+    <div class="marquee-track" id="marqueeTrack"></div>
   </div>
 </section>
 
@@ -404,7 +459,17 @@
       <p>Every product is supplied with full documentation. Tap any card for capacity, usage and safety details.</p>
     </div>
 
-    <div class="product-grid" id="productGrid"></div>
+    <div class="subsection-head">
+      <h3>Medical Gas Cylinders</h3>
+      <span>7 gases stocked · tap a card for full spec sheet</span>
+    </div>
+    <div class="gas-grid" id="gasGrid"></div>
+
+    <div class="subsection-head">
+      <h3>Equipment &amp; Machinery</h3>
+      <span>Cots, concentrators &amp; suction units</span>
+    </div>
+    <div class="equip-grid" id="equipGrid"></div>
   </div>
 </section>
 
@@ -423,7 +488,7 @@
           <svg viewBox="0 0 24 24" fill="none"><path d="M12 3c-3 4-5 7-5 10a5 5 0 0010 0c0-3-2-6-5-10z" stroke="#1E8F7A" stroke-width="1.8"/></svg>
         </div>
         <h3>Gas Supply</h3>
-        <p>Scheduled and emergency delivery of oxygen, nitrous oxide and medical air, with cylinder exchange and bulk tank refills.</p>
+        <p>Scheduled and emergency delivery of oxygen, nitrous oxide, medical air and more, with cylinder exchange and bulk refills.</p>
       </div>
       <div class="service-card">
         <div class="icon-wrap">
@@ -505,7 +570,7 @@
             <span>Mon–Sat, 9:00 AM – 8:00 PM &nbsp;|&nbsp; Emergency line open 24/7</span>
           </div>
         </div>
-        <p class="placeholder-note">⚠ Sample contact details above — replace with your real phone, email, address and WhatsApp number before publishing (see marked spots in the code).</p>
+        <p class="placeholder-note">⚠ Sample contact details above — replace with your real phone, email, address and WhatsApp number before publishing.</p>
       </div>
 
       <div class="map-frame">
@@ -569,99 +634,153 @@
   const navLinks = document.getElementById('navLinks');
   burger.addEventListener('click', () => {
     navLinks.classList.toggle('open');
-    const expanded = navLinks.classList.contains('open');
-    burger.setAttribute('aria-expanded', expanded);
+    burger.setAttribute('aria-expanded', navLinks.classList.contains('open'));
   });
   navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
 
-  // ---------- Product data ----------
+  // ---------- Trust marquee (Chennai hospitals) ----------
+  // NOTE: sample list of well-known Chennai hospitals — replace with your ACTUAL
+  // client hospitals before publishing. Displaying a hospital name here implies
+  // they are a real customer, so only list hospitals you genuinely supply.
+  const HOSPITALS = [
+    'Apollo Hospitals', 'Fortis Malar Hospital', 'MIOT International',
+    'Sri Ramachandra Medical Centre', 'Kauvery Hospital', 'Gleneagles Global Health City',
+    'SIMS Hospital', 'Vijaya Hospital', 'Rela Institute', 'Billroth Hospitals'
+  ];
+  const marqueeTrack = document.getElementById('marqueeTrack');
+  function chipHTML(name){
+    const initials = name.split(' ').filter(w => w[0] === w[0].toUpperCase()).slice(0,2).map(w => w[0]).join('');
+    return `<div class="hospital-chip"><span class="logo-dot">${initials}</span><span class="h-name">${name}</span></div>`;
+  }
+  // duplicate the list so the marquee can loop seamlessly at -50%
+  const chips = HOSPITALS.map(chipHTML).join('');
+  marqueeTrack.innerHTML = chips + chips;
+
+  // ---------- Icons ----------
   const ICONS = {
-    cylinder: `<svg viewBox="0 0 64 64" fill="none"><rect x="22" y="10" width="20" height="46" rx="8" stroke="#1E8F7A" stroke-width="3"/><rect x="27" y="4" width="10" height="8" rx="2" fill="#1E8F7A"/><path d="M22 24h20" stroke="#1E8F7A" stroke-width="3"/></svg>`,
+    cylinder: `<svg viewBox="0 0 64 64" fill="none"><rect x="22" y="10" width="20" height="46" rx="8" stroke="currentColor" stroke-width="3"/><rect x="27" y="4" width="10" height="8" rx="2" fill="currentColor"/><path d="M22 24h20" stroke="currentColor" stroke-width="3"/></svg>`,
     cot: `<svg viewBox="0 0 64 64" fill="none"><rect x="6" y="26" width="52" height="18" rx="3" stroke="#1E8F7A" stroke-width="3"/><path d="M10 26v-6a3 3 0 013-3h14v9" stroke="#1E8F7A" stroke-width="3"/><path d="M6 50v-6M58 50v-6" stroke="#1E8F7A" stroke-width="3"/></svg>`,
     machine: `<svg viewBox="0 0 64 64" fill="none"><rect x="10" y="12" width="44" height="40" rx="5" stroke="#1E8F7A" stroke-width="3"/><path d="M18 30h6l4-10 6 20 4-10h8" stroke="#1E8F7A" stroke-width="3" stroke-linejoin="round"/></svg>`
   };
 
-  const PRODUCTS = [
+  // ---------- Medical Gas Cylinders ----------
+  const GASES = [
     {
-      id: 'oxygen-cylinder',
-      icon: 'cylinder',
-      category: 'Medical Gas',
-      name: 'Medical Oxygen Cylinder',
-      short: 'Pharmacopoeia-grade compressed oxygen for hospital and home therapy use.',
-      desc: 'High-purity medical oxygen supplied in certified steel/aluminium cylinders. Suitable for hospital wards, ambulances, and home oxygen therapy under medical supervision.',
-      specs: [
-        ['Capacity', '10L / 40L / 47L'],
-        ['Purity', '≥ 99.5% USP/IP grade'],
-        ['Pressure', '150 bar (filled)'],
-        ['Valve Type', 'Pin-index / bull-nose']
-      ],
-      usage: [
-        'Connect only with a calibrated pressure regulator and flow meter.',
-        'Open the cylinder valve slowly, never fully in one motion.',
-        'Set flow rate strictly as prescribed by the treating physician.',
-        'Store upright and secured with a chain or stand at all times.'
-      ],
-      safety: 'Keep away from open flame, oil, grease and direct sunlight. Never use with damaged regulators. Cylinders are pressurised — mishandling can cause serious injury. Always transport and store as per local medical gas cylinder regulations.'
+      id:'oxygen', symbol:'O₂', name:'Oxygen', color:'#1E8F7A',
+      capacity:'2L / 10L / 47L',
+      desc:'High-purity medical oxygen for respiratory therapy, resuscitation and anaesthesia support across ICU, ward and ambulance use.',
+      specs:[['Capacity','2L / 10L / 47L'],['Purity','≥ 99.5% (USP/IP grade)'],['State','Compressed gas'],['Common Use','Respiratory therapy, anaesthesia']],
+      usage:['Connect only through a calibrated regulator and flow meter.','Open the cylinder valve slowly, never fully in one motion.','Set flow rate strictly as prescribed by the treating physician.','Store upright and secured with a chain or stand.'],
+      safety:'Keep away from open flame, oil and grease. Pressurised cylinder — mishandling can cause serious injury. Transport and store as per local medical gas cylinder regulations.'
     },
     {
-      id: 'medical-cot',
-      icon: 'cot',
-      category: 'Medical Equipment',
-      name: 'Medical Cot / Hospital Bed',
-      short: 'Adjustable hospital-grade cot for ward, ICU and home patient care.',
-      desc: 'Manual or semi-electric adjustable medical cot with side railings, designed for patient comfort and caregiver safety in both hospital and home settings.',
-      specs: [
-        ['Load Capacity', 'Up to 150 kg'],
-        ['Adjustment', 'Head / knee / height'],
-        ['Frame', 'Powder-coated steel'],
-        ['Mattress', 'Included, waterproof cover']
-      ],
-      usage: [
-        'Lock all wheel brakes before transferring a patient.',
-        'Raise side railings whenever the patient is unattended.',
-        'Adjust backrest and knee-rest gradually to avoid discomfort.',
-        'Check bolts and joints periodically for looseness.'
-      ],
-      safety: 'Do not exceed the rated load capacity. Ensure the cot is on a level, stable floor before use. Caregivers should be briefed on the locking mechanism before first use to prevent falls.'
+      id:'medical-air', symbol:'Air', name:'Medical Air', color:'#2E7FB8',
+      capacity:'10L / 47L',
+      desc:'Synthetic compressed air (21% oxygen, balance nitrogen) used to drive ventilators and surgical tools, and for general respiratory support.',
+      specs:[['Capacity','10L / 47L'],['Composition','21% O₂, balance N₂'],['Pressure','137–150 bar'],['Common Use','Ventilators, surgical air tools']],
+      usage:['Use dedicated medical-air-only regulators and lines — never interchange with industrial air.','Check inlet pressure before connecting to ventilator equipment.','Inspect hoses and fittings for wear before each use.'],
+      safety:'Never substitute with compressor-generated or industrial air. Contamination risk if lines are shared with non-medical air systems. Verify cylinder labelling before connection.'
     },
     {
-      id: 'oxygen-concentrator',
-      icon: 'machine',
-      category: 'Medical Machinery',
-      name: 'Oxygen Concentrator / Suction Machine',
-      short: 'Continuous-use machinery for respiratory support and airway clearance.',
-      desc: 'Electrically powered oxygen concentrators and suction units for continuous home or clinical use, reducing dependency on cylinder refills for stable patients.',
-      specs: [
-        ['Flow Rate', '1–5 LPM (concentrator)'],
-        ['Power', '220–240V AC'],
-        ['Noise Level', '< 45 dB'],
-        ['Warranty', '1 year on-site']
-      ],
-      usage: [
-        'Place on a flat surface with at least 30cm clearance for ventilation.',
-        'Clean or replace filters as per the maintenance schedule.',
-        'Use only manufacturer-approved tubing and connectors.',
-        'Do not operate near flammable gases or open flame.'
-      ],
-      safety: 'This is a life-support-adjacent device for prescribed patients only. Always keep a backup oxygen cylinder available in case of power failure. Do not attempt internal repairs — contact our technical team for servicing.'
+      id:'nitrous-oxide', symbol:'N₂O', name:'Nitrous Oxide', color:'#5B6FD9',
+      capacity:'10L / 25L',
+      desc:'Liquefied medical gas used for anaesthesia and analgesia, commonly supplied pure or pre-mixed with oxygen for pain relief.',
+      specs:[['Capacity','10L / 25L'],['Purity','≥ 98% medical grade'],['State','Liquefied under pressure'],['Common Use','Anaesthesia, analgesia (labour, dental, minor procedures)']],
+      usage:['Cylinder must be used upright — contents are liquefied and pressure readings are not linear to volume.','Administer only via calibrated anaesthesia/analgesia equipment.','Ensure adequate room ventilation during prolonged use.'],
+      safety:'Can displace oxygen in poorly ventilated spaces causing hypoxia. Administer only under trained clinical supervision. Keep cylinder valve protected from damage during transport.'
+    },
+    {
+      id:'carbon-dioxide', symbol:'CO₂', name:'Carbon Dioxide', color:'#8A93A6',
+      capacity:'10L / 40L',
+      desc:'Medical-grade CO₂ used mainly for laparoscopic insufflation during minimally invasive surgery and controlled incubator atmospheres.',
+      specs:[['Capacity','10L / 40L'],['Purity','Medical / USP grade'],['State','Liquefied under pressure'],['Common Use','Laparoscopic insufflation, incubators']],
+      usage:['Use only with insufflator equipment calibrated for medical CO₂.','Monitor intra-abdominal pressure continuously during laparoscopic use.','Store cylinders upright in a well-ventilated area.'],
+      safety:'High concentrations can cause asphyxiation in confined spaces — ensure ventilation where cylinders are stored or used. Never use industrial-grade CO₂ for patient procedures.'
+    },
+    {
+      id:'nitrogen', symbol:'N₂', name:'Nitrogen', color:'#4A5A6B',
+      capacity:'10L / 47L',
+      desc:'Inert medical gas used to power pneumatic surgical tools and for select cryotherapy and equipment-support applications.',
+      specs:[['Capacity','10L / 47L'],['Purity','≥ 99.9%'],['State','Compressed gas'],['Common Use','Pneumatic surgical tools, equipment drive gas']],
+      usage:['Use a dedicated nitrogen regulator rated for the required tool pressure.','Check hose connections for leaks before each surgical use.','Do not use for patient inhalation under any circumstance.'],
+      safety:'Nitrogen is an asphyxiant in enclosed spaces — never use for breathing. Ensure clear labelling to prevent mix-ups with oxygen or medical air lines.'
+    },
+    {
+      id:'helium', symbol:'He', name:'Helium', color:'#D98E3D',
+      capacity:'10L / 50L',
+      desc:'Ultra-high-purity helium used in Heliox therapy blends for airway obstruction relief, and to support certain diagnostic equipment.',
+      specs:[['Capacity','10L / 50L'],['Purity','≥ 99.996%'],['State','Compressed gas'],['Common Use','Heliox respiratory therapy, equipment cooling support']],
+      usage:['Administer Heliox blends only via equipment specifically calibrated for helium-oxygen mixtures.','Verify blend ratio certification on the cylinder label before use.','Store in a cool, well-ventilated area away from heat sources.'],
+      safety:'Rapid release can cause frostbite from cylinder chilling — handle regulators with care. Only trained respiratory staff should administer Heliox therapy.'
+    },
+    {
+      id:'nitric-oxide', symbol:'NO', name:'Nitric Oxide', color:'#C24B4B',
+      capacity:'2L / 10L (specialised blend)',
+      desc:'A specialised, low-concentration inhaled gas used in ICU/NICU settings for pulmonary hypertension and select critical respiratory support.',
+      specs:[['Capacity','2L / 10L cylinders'],['Blend','Low ppm NO in N₂ (per prescription)'],['State','Compressed, specialised blend'],['Common Use','Inhaled pulmonary vasodilator therapy (ICU/NICU)']],
+      usage:['Administer only through a dedicated, calibrated NO delivery system.','Continuous monitoring of NO₂ and methaemoglobin levels is required during therapy.','Reserved for trained critical-care staff — not for general ward use.'],
+      safety:'Highly regulated gas — toxic at high concentrations and can form NO₂ on exposure to oxygen. Must only be handled and administered per your facility\\'s critical-care protocol and regulatory approval.'
     }
   ];
 
-  const grid = document.getElementById('productGrid');
-  PRODUCTS.forEach(p => {
+  const gasGrid = document.getElementById('gasGrid');
+  GASES.forEach(g => {
+    const card = document.createElement('button');
+    card.className = 'product-card gas-card';
+    card.setAttribute('type','button');
+    card.innerHTML = `
+      <div class="accent-bar" style="background:${g.color}"></div>
+      <div class="product-visual" style="color:${g.color}">${ICONS.cylinder}</div>
+      <div class="product-body">
+        <span class="eyebrow" style="color:${g.color}">${g.symbol}</span>
+        <h3>${g.name}</h3>
+        <span class="capacity-tag">${g.capacity}</span>
+      </div>`;
+    card.addEventListener('click', () => openModal({
+      icon:'cylinder', iconColor:g.color, category:`Medical Gas · ${g.symbol}`, name:g.name,
+      desc:g.desc, specs:g.specs, usage:g.usage, safety:g.safety
+    }));
+    gasGrid.appendChild(card);
+  });
+
+  // ---------- Equipment ----------
+  const EQUIPMENT = [
+    {
+      id:'medical-cot', icon:'cot', category:'Medical Equipment', name:'Medical Cot / Hospital Bed',
+      short:'Adjustable hospital-grade cot for ward, ICU and home patient care.',
+      desc:'Manual or semi-electric adjustable medical cot with side railings, designed for patient comfort and caregiver safety in both hospital and home settings.',
+      specs:[['Load Capacity','Up to 150 kg'],['Adjustment','Head / knee / height'],['Frame','Powder-coated steel'],['Mattress','Included, waterproof cover']],
+      usage:['Lock all wheel brakes before transferring a patient.','Raise side railings whenever the patient is unattended.','Adjust backrest and knee-rest gradually to avoid discomfort.','Check bolts and joints periodically for looseness.'],
+      safety:'Do not exceed the rated load capacity. Ensure the cot is on a level, stable floor before use. Caregivers should be briefed on the locking mechanism before first use to prevent falls.'
+    },
+    {
+      id:'oxygen-concentrator', icon:'machine', category:'Medical Machinery', name:'Oxygen Concentrator / Suction Machine',
+      short:'Continuous-use machinery for respiratory support and airway clearance.',
+      desc:'Electrically powered oxygen concentrators and suction units for continuous home or clinical use, reducing dependency on cylinder refills for stable patients.',
+      specs:[['Flow Rate','1–5 LPM (concentrator)'],['Power','220–240V AC'],['Noise Level','< 45 dB'],['Warranty','1 year on-site']],
+      usage:['Place on a flat surface with at least 30cm clearance for ventilation.','Clean or replace filters as per the maintenance schedule.','Use only manufacturer-approved tubing and connectors.','Do not operate near flammable gases or open flame.'],
+      safety:'This is a life-support-adjacent device for prescribed patients only. Always keep a backup oxygen cylinder available in case of power failure. Do not attempt internal repairs — contact our technical team for servicing.'
+    }
+  ];
+
+  const equipGrid = document.getElementById('equipGrid');
+  EQUIPMENT.forEach(p => {
     const card = document.createElement('button');
     card.className = 'product-card';
-    card.setAttribute('type', 'button');
+    card.setAttribute('type','button');
     card.innerHTML = `
-      <div class="product-visual">${ICONS[p.icon]}</div>
+      <div class="product-visual" style="color:#1E8F7A">${ICONS[p.icon]}</div>
       <div class="product-body">
         <span class="eyebrow">${p.category}</span>
         <h3>${p.name}</h3>
         <p>${p.short}</p>
         <span class="view-link">View details →</span>
       </div>`;
-    card.addEventListener('click', () => openModal(p));
-    grid.appendChild(card);
+    card.addEventListener('click', () => openModal({
+      icon:p.icon, iconColor:'#1E8F7A', category:p.category, name:p.name,
+      desc:p.desc, specs:p.specs, usage:p.usage, safety:p.safety
+    }));
+    equipGrid.appendChild(card);
   });
 
   // ---------- Modal logic ----------
@@ -675,7 +794,7 @@
   const modalSafety = document.getElementById('modalSafety');
 
   function openModal(p){
-    modalVisual.innerHTML = ICONS[p.icon];
+    modalVisual.innerHTML = `<span style="color:${p.iconColor}">${ICONS[p.icon]}</span>`;
     modalEyebrow.textContent = p.category;
     modalTitle.textContent = p.name;
     modalDesc.textContent = p.desc;
