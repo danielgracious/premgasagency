@@ -668,7 +668,7 @@
     const initials = name.split(' ').filter(w => w[0] === w[0].toUpperCase()).slice(0,2).map(w => w[0]).join('');
     const slug = slugify(name);
     return `<div class="hospital-chip">
-      <img class="logo-img" src="images/hospitals/${slug}.png" alt="${name} logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <img class="logo-img" src="images/hospitals/${slug}.svg" alt="${name} logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
       <span class="logo-dot" style="display:none">${initials}</span>
       <span class="h-name">${name}</span>
     </div>`;
